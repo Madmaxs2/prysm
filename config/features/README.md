@@ -27,7 +27,7 @@ Examples of when not to use a feature flag:
 ## How to use a feature flag?
 
 Once it has been decided that you should use a feature flag. Follow these steps to safely
-releasing your feature. In general, try to create a single PR for each step of this process.
+release your feature. In general, try to create a single PR for each step of this process.
 
 1. Add your feature flag to `shared/featureconfig/flags.go`, use the flag to toggle a boolean in the
 feature config in shared/featureconfig/config.go. It is a good idea to use the `enable` prefix for
@@ -53,7 +53,7 @@ important NOT to delete your existing flag outright. Deleting a flag can be extr
 to users as it may break their existing workflow! Marking a flag as deprecated gives users time to
 adjust their start scripts and workflow. Add another feature flag to represent the inverse of your
 flag from step 1. For example `--disable-my-feature`. Read the value of this flag to appropriately
-the config value in shared/featureconfig/config.go.
+set the config value in shared/featureconfig/config.go.
 6. After your feature has been included in a release as "opt-out" and there are no issues,
 deprecate the opt-out feature flag, delete the config field from shared/featureconfig/config.go,
 delete any deprecated / obsolete code paths.
